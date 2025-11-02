@@ -30,7 +30,7 @@ gcloud container clusters get-credentials echo-cluster --zone=ZONE
 
 6. Create Deployment
 ```bash
-kubectl create deployment echo-web --image=gcr.io/qwiklabs-resources/echo-app:v2
+kubectl create deployment echo-web --image=gcr.io/$GOOGLE_CLOUD_PROJECT/echo-app:v2
 ```
 
 7. Expose the service and get Public IP or External IP
