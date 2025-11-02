@@ -30,7 +30,7 @@ gcloud container clusters get-credentials echo-cluster --zone=ZONE
 
 6. Create Deployment
 ```bash
-kubectl create deployment echo-web --image=gcr.io/qwiklabs-resources/echo-app:v1
+kubectl create deployment echo-web --image=gcr.io/qwiklabs-resources/echo-app:v2
 ```
 
 7. Expose the service and get Public IP or External IP
@@ -42,6 +42,10 @@ kubectl expose deployment echo-web --type=LoadBalancer --port 80 --target-port 8
 ```bash
 kubectl get service echo-web --watch
 ``` 
+
+9. Example of Documentation from me
+![ss-1](./image/gke1.png)
+![ss-2](./image/gke2.png)
 
 ### note: I'm just adding a tutorial on how to run it.
 The tutorial Documentation created by Mochamad Abdul Rouf
