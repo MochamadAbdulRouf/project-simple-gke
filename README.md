@@ -50,6 +50,10 @@ kubectl get service echo-web --watch
 ### note: I'm just adding a tutorial on how to run it.
 The tutorial Documentation created by Mochamad Abdul Rouf
 
-
+10. create `cluster` using `cloud shell`
+- example :
+```bash
+gcloud container clusters create echo-cluster --num-nodes=2 --machine-type=e2-standard-2 --zone=us-east1-c
+```
 
 @COPYRIGHT the code copy from Google Cloud 
