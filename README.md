@@ -57,12 +57,12 @@ The tutorial Documentation created by Mochamad Abdul Rouf
 gcloud container clusters create echo-cluster --num-nodes=2 --machine-type=e2-standard-2 --zone=us-east1-c
 ```
 
-2. Set up authentication to Docker repository in the region
+2. Set up authentication to `Docker` repository in the region
 ```bash
 gcloud auth configure-docker "REGION"-docker.pkg.dev
 ```
 
-3. Run Command to create Artifact Repository Docker Images (GCR)
+3. Run Command to create Artifact Repository Docker Images `(GCR)`
 ```bash
 gcloud artifacts repositories create my-repository --repository-format=docker --location="REGION" --description="Docker repository"
 ```
@@ -72,12 +72,12 @@ gcloud artifacts repositories create my-repository --repository-format=docker --
 docker build -t "REGION"-docker.pkg.dev/"PROJECT_ID"/my-repository/node-app:0.2 .
 ```
 
-5. Push this image to Artifact Registry (GCR)
+5. Push this image to `Artifact Registry` `(GCR)`
 ```bash
 docker push "REGION"-docker.pkg.dev/"PROJECT_ID"/my-repository/node-app:0.2
 ```
 
-6. Here command to remove all of the Docker Images
+6. Here command to remove all of the `Docker Images`
 ```bash
 docker rmi "REGION"-docker.pkg.dev/"PROJECT_ID"/my-repository/node-app:0.2
 docker rmi node:lts
