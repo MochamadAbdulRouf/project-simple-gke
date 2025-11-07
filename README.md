@@ -50,10 +50,41 @@ kubectl get service echo-web --watch
 ### note: I'm just adding a tutorial on how to run it.
 The tutorial Documentation created by Mochamad Abdul Rouf
 
-10. create `cluster` using `cloud shell`, Cluster has 2 `node` and 2 `node` using machine type `e2-standard-2`. And Customize your region zone
+### Additional Commands
+1. create `cluster` using `cloud shell`, Cluster has 2 `node` and 2 `node` using machine type `e2-standard-2`. And Customize your region zone
 - example :
 ```bash
 gcloud container clusters create echo-cluster --num-nodes=2 --machine-type=e2-standard-2 --zone=us-east1-c
 ```
+
+2. Set up authentication to Docker repository in the region
+```bash
+gcloud auth configure-docker "REGION"-docker.pkg.dev
+```
+
+3. Run Command to create Artifact Repository Docker Images (GCR)
+```bash
+gcloud artifacts repositories create my-repository --repository-format=docker --location="REGION" --description="Docker repository"
+```
+
+4. Run Command auto push docker images
+```bash
+docker build -t "REGION"-docker.pkg.dev/"PROJECT_ID"/my-repository/node-app:0.2 .
+```
+
+5. Push this image to Artifact Registry (GCR)
+```bash
+docker push "REGION"-docker.pkg.dev/"PROJECT_ID"/my-repository/node-app:0.2
+```
+
+6. Here command to remove all of the Docker Images
+```bash
+docker rmi "REGION"-docker.pkg.dev/"PROJECT_ID"/my-repository/node-app:0.2
+docker rmi node:lts
+docker rmi -f $(docker images -aq) # remove remaining images
+docker images
+```
+
+
 
 @COPYRIGHT the code copy from Google Cloud 
